@@ -1,0 +1,15 @@
+{
+  "name": "trascrittore-lezioni",
+  "version": "1.0.0",
+  "description": "App desktop per trascrivere lezioni con Whisper",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": ["whisper", "trascrizione", "lezioni"],
+  "author": "Ivan",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0"
+  }
+}
