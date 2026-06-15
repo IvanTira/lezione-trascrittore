@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src http://localhost:8765; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+  <title>Trascrittore Lezioni</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>🎓 Trascrittore Lezioni</h1>
+      <p class="subtitle">Trascrivi audio e video con OpenAI Whisper</p>
+    </header>
+
+    <section class="controls">
+      <div class="row">
+        <div class="field">
+          <label for="model-select">Modello Whisper</label>
+          <select id="model-select">
+            <option value="tiny">tiny – veloce</option>
+            <option value="base" selected>base – bilanciato</option>
+            <option value="small">small – preciso</option>
+            <option value="medium">medium – alta qualità</option>
+            <option value="large">large – max qualità</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="lang-select">Lingua</label>
+          <select id="lang-select">
+            <option value="it" selected>Italiano</option>
+            <option value="en">English</option>
+            <option value="auto">Auto-detect</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="file-area" id="drop-zone">
+        <p>📂 Trascina qui il file audio/video</p>
+        <p class="or">oppure</p>
+        <button id="btn-pick" class="btn-secondary">Sfoglia file</button>
+        <p id="file-name" class="file-name hidden"></p>
+      </div>
+
+      <div class="row center">
+        <button id="btn-transcribe" class="btn-primary" disabled>▶ Trascrivi</button>
+        <button id="btn-check" class="btn-outline">🔌 Verifica backend</button>
+      </div>
+    </section>
+
+    <div id="status-bar" class="status-bar hidden"></div>
+    <div id="progress" class="progress hidden">
+      <div class="spinner"></div>
+      <span id="progress-text">Trascrizione in corso…</span>
+    </div>
+
+    <section class="result hidden" id="result-section">
+      <div class="result-header">
+        <h2>Risultato</h2>
+        <div class="result-actions">
+          <button id="btn-copy" class="btn-outline small">📋 Copia</button>
+          <button id="btn-save" class="btn-outline small">💾 Salva .txt</button>
+        </div>
+      </div>
+      <textarea id="result-text" readonly></textarea>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
